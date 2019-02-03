@@ -207,10 +207,6 @@ img {
 
 /* Moblie portrait, landscape and Tablet portrait */
 @media all and (max-width: 992px) {
-    body {
-        font-size: 18px;
-    }
-
     .footer {
         line-height: 1.5em;
     }
@@ -231,6 +227,12 @@ img {
 
     .footer i.small {
         text-align: center;
+    }
+}
+
+@media all and (max-width: 767px) {
+    body {
+        font-size: 18px;
     }
 }
 

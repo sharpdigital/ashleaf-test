@@ -19,12 +19,16 @@ h1 img {
 
 h2,
 .motto {
-    font-size: 1.2em;
+    font-weight: 400;
 }
 
 h2, h2 a, h2 a:hover, h2 a:active, h2 a:visited {
+    margin: 0;
     color: #815241;
-    font-weight: 200;
+}
+
+p {
+    margin-bottom: 0;
 }
 
 hr {
@@ -47,7 +51,7 @@ img {
 }
 
 .row {
-    padding: 2vw 0;
+    padding: 1.5vw 0;
     color: #4d4d4d;
     line-height: 1.2em;
 }

@@ -19,12 +19,13 @@ h1 img {
 
 h2,
 .motto {
-    font-weight: 400;
+    font-size: 1.2em;
 }
 
 h2, h2 a, h2 a:hover, h2 a:active, h2 a:visited {
     margin: 0;
     color: #815241;
+    font-weight: 200;
 }
 
 p {
@@ -136,6 +137,10 @@ img {
 
 .brief-description-gap {
     padding-bottom: 8vw;
+}
+
+.newsletter p {
+    margin-bottom: 10px;
 }
 
 .form-control {

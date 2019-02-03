@@ -11,6 +11,7 @@ h1 {
     font-size: 30vw;
     font-weight: 100;
     text-align: center;
+    margin: 0;
 }
 
 h2, h2 a, h2 a:hover, h2 a:active, h2 a:visited {
@@ -44,10 +45,6 @@ img {
     line-height: 1.2em;
 }
 
-.rule {
-    padding: 0;
-}
-
 .light-bg {
     background-color: #b7c6d0;
     color: #233b46;
@@ -60,15 +57,6 @@ img {
 
 .light-bg hr {
     border-color: #233b46;
-}
-
-.logo-row-margin {
-    padding-bottom: 1.6vw;
-    color: white;
-}
-
-.no-bottom-margin {
-    margin-bottom: 0;
 }
 
 .slideshow p {
@@ -201,13 +189,17 @@ img {
 }
 
 .atcb-link {
-  padding: inherit !important;
-  background: inherit !important;
-  box-shadow: inherit !important;
-  color: inherit !important;
-  text-decoration: underline !important;
-  font-size: inherit !important;
-  font-family: inherit !important;
+    padding: inherit !important;
+    background: inherit !important;
+    box-shadow: inherit !important;
+    color: inherit !important;
+    text-decoration: underline !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+}
+
+.btn-default {
+    background-color: #b7c6d0;
 }
 
 /* Moblie portrait, landscape and Tablet portrait */
@@ -229,10 +221,33 @@ img {
     }
 }
 
+@media all and (max-width: 576px) {
+    .footer div.text-center {
+        text-align: left;
+    }
+
+    .footer i.small {
+        text-align: center;
+    }
+}
+
 .nopadding {
     padding: 0;
 }
 
 .negative-margin {
     margin-bottom: -20px;
+}
+
+.rule {
+    padding: 0;
+}
+
+.logo-row-margin {
+    color: white;
+    padding-bottom: 0;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0;
 }

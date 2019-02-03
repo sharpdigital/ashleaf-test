@@ -17,8 +17,13 @@ h1 img {
     margin-top: 2vw;
 }
 
-h2, h2 a, h2 a:hover, h2 a:active, h2 a:visited {
+h2,
+.motto,
+.sliding {
     font-size: 1.2em;
+}
+
+h2, h2 a, h2 a:hover, h2 a:active, h2 a:visited {
     color: #815241;
     font-weight: 200;
 }

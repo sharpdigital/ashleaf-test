@@ -229,7 +229,7 @@ img {
         padding: 4vw 0;
     }
 
-    .dark-bg .row {
+    .dark-bg {
         padding: 6vw 0;
     }
 
@@ -265,9 +265,12 @@ img {
     }
 }
 
+.row.dark-bg.nopadding,
+.row.nopadding,
 .nopadding {
     padding: 0;
 }
+
 
 .negative-margin {
     margin-bottom: -20px;

@@ -229,6 +229,10 @@ img {
         padding: 4vw 0;
     }
 
+    .dark-bg .row {
+        padding: 6vw 0;
+    }
+
     .col-md-6 img {
         padding-top: 8vw;
     }
@@ -241,6 +245,17 @@ img {
 
     .footer i.small {
         text-align: center;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .row.logo-row-margin {
+        padding-top: 2vw;
+    }
+
+    .row.motto {
+        padding-top: 3svw;
+        padding-bottom: 1.5vw;
     }
 }
 

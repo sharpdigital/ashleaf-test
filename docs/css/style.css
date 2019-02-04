@@ -263,6 +263,10 @@ img {
     body {
         font-size: 18px;
     }
+
+    .dark-bg {
+        padding: 9vw 0;
+    }
 }
 
 .row.dark-bg.nopadding,

@@ -121,6 +121,62 @@ img {
     width: 22px; /* fontsize + 2 * padding */
 }
 
+.reviews {
+    background-image: url('../img/desktop/cherry-variations-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.reviews .dark-bg {
+    background-color: rgba(35, 59, 70, .9);
+}
+
+.reviews h2 {
+    padding: 1em;
+    font-weight: normal;
+}
+
+.reviews hr {
+    border-color: #ccb090;
+    width: 60%;
+}
+
+.reviews .quotes {
+    padding: 1em;
+}
+
+.review-us {
+    padding-bottom: 1em;
+}
+
+.review-us .link {
+    color: #815241;
+}
+
+.thank-you {
+    display: none;
+    padding-bottom: 1em;
+}
+
+.review-form {
+    display: none;
+    padding-bottom: 1em;
+}
+
+.review-form label {
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.review-form p {
+    padding-bottom: 10px;
+}
+
+.review-form button {
+    background-color: #233b46;
+    color: white;
+}
+
 .footer .round-icon {
     background-color: #788e9c;
 }
@@ -274,7 +330,6 @@ img {
 .nopadding {
     padding: 0;
 }
-
 
 .negative-margin {
     margin-bottom: -20px;

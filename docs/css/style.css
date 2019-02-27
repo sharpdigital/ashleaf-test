@@ -46,6 +46,44 @@ hr {
     width: 83.3%;
 }
 
+.row.navigation {
+    padding: 1.5vw 0 0;
+}
+
+nav {
+    float: right;
+    position: relative;
+    left: -50%;
+    text-align: left;
+}
+
+nav > ul {
+    position: relative;
+    left: 50%;
+}
+
+.nav li a {
+    color: #233b46;
+    font-weight: normal;
+    border-right: 1px solid #233b46;
+    border-radius: 0;
+    padding: 0 15px;
+    margin: 10px 0;
+}
+
+.nav li:last-child a {
+    border-right: none;
+}
+
+.nav li a.active {
+    font-weight: bold;
+}
+
+.nav li a:hover {
+    background-color: transparent;
+    color: #233b46;
+}
+
 img {
     width: 100%;
     height: auto;
@@ -100,7 +138,7 @@ img {
     width: 100%;
     position: absolute;
     z-index: 1000;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
 .round-icon {
@@ -109,9 +147,9 @@ img {
     color: white;
 
     font-size: 28px;
-    height: 40px; /* fontsize + 2 * padding */
-    padding: 6px;
-    width: 40px; /* fontsize + 2 * padding */
+    height: 60px; /* fontsize + 2 * padding */
+    padding: 16px;
+    width: 60px; /* fontsize + 2 * padding */
 }
 
 .round-icon.small {
@@ -310,7 +348,7 @@ img {
     }
 
     .row.motto {
-        padding-top: 3svw;
+        padding-top: 3vw;
         padding-bottom: 1.5vw;
     }
 }
@@ -322,6 +360,17 @@ img {
 
     .dark-bg {
         padding: 10vw 0;
+    }
+
+    .social {
+        margin-top: -20px;
+    }
+
+    .round-icon {
+        font-size: 20px;
+        height: 40px; /* fontsize + 2 * padding */
+        padding: 10px;
+        width: 40px; /* fontsize + 2 * padding */
     }
 }
 

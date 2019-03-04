@@ -196,6 +196,12 @@ img {
     padding-bottom: 1em;
 }
 
+.error {
+    display: none;
+    color: red;
+    padding-bottom: 1em;
+}
+
 .review-form {
     display: none;
     padding-bottom: 1em;

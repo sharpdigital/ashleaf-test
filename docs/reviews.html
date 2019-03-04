@@ -73,6 +73,7 @@
                             As artists, we find feedback on our work invaluable. Here you can <a href="#" class="link">leave us a review</a>.
                         </div>
                         <div class="text-center thank-you">Thanks you for your review.</div>
+                        <div class="text-center error">All fields are required!</div>
                         <div class="review-form col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
                             <p class="text-center">Leave a review</p>
                             <form novalidate id="review-form">
@@ -163,32 +164,134 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script>
     (function($) {
+        const selectors = {
+            reviewForm: '.review-form',
+            cancelButton: '.review-form button.cancel',
+            reviewUs: '.review-us',
+            reviewUsLink: '.review-us .link',
+            thankYou: '.thank-you',
+            error: '.error',
+            form: '#review-form',
+            name: 'input[name="name"]',
+            location: 'input[name="location"]',
+            review: 'textarea[name="review"]',
+            terms: '#terms',
+        };
+
+        function toggleToShow(elementsToShow, all) {
+            if (all === false) {
+                elementsToShow.forEach((selector) => $(selectors[selector]).show());
+            } else {
+                ['reviewForm', 'reviewUs', 'thankYou', 'error']
+                    .forEach((selector) => {
+                        var act = elementsToShow.includes(selector) ? 'show' : 'hide';
+                        $(selectors[selector])[act]();
+                    });
+            }
+        }
+
+        // var formElements2 = [
+        //     {
+        //         name: 'name',
+        //         element: 'input',
+        //         selectorType: 'attribute',
+        //     },
+        //     {
+        //         name: 'location',
+        //         element: 'input',
+        //         selectorType: 'attribute',
+        //     },
+        //     {
+        //         name: 'review',
+        //         element: 'textarea',
+        //         selectorType: 'attribute',
+        //     },
+        //     {
+        //         name: 'terms',
+        //         element: 'checkbox',
+        //         selectorType: 'id',
+        //     }
+        // ];
+        // var formElements = [
+        //     {
+        //         el: $('input[name="name"]'),
+        //         name: 'name',
+        //         val: () => $('input[name="name"]').val(),
+        //     },
+        //     {
+        //         el: $('input[name="location"]'),
+        //         name: 'location',
+        //         val: () => $('input[name="location"]').val(),
+        //     },
+        //     {
+        //         el: $('textarea[name="review"]'),
+        //         name: 'review',
+        //         val: () => $('textarea[name="review"]').val(),
+        //     },
+        //     {
+        //         el: $('#terms'),
+        //         name: 'terms',
+        //         val: () => $('#terms').is(':checked'),
+        //     },
+        // ];
+
+        function getFormData(name, location, review, terms) {
+            return {
+                name: name,
+                location: location,
+                review: review,
+                terms: terms,
+            };
+        }
+
+        function isValidReview(review) {
+            return (!!review.name && !!review.location && !!review.review && !!review.terms);
+        }
+
+        function error() {
+            // var errorBgColor = '#ffc6c6';
+            toggleToShow(['error'], false);
+        }
+
+        function response(res) {
+            console.log({res});
+            if (res.error !== true) {
+                toggleToShow(['thankYou']);
+            } else {
+                // var errMessage = res.message;
+                error();
+            }
+        }
+
         $(document).ready(function() {
-            $('.review-us .link').click(function(e) {
+            toggleToShow(['reviewUs']);
+
+            $(selectors.reviewUsLink).click(function(e) {
                 e.preventDefault();
-                $('.review-form').show();
-                $('.review-us').hide();
-                $('.thank-you').hide();
+                toggleToShow(['reviewForm']);
             });
 
-            $('.review-form button.cancel').click(function () {
-                $('.review-form').hide();
-                $('.review-us').show();
+            $(selectors.cancelButton).click(function () {
+                toggleToShow(['reviewUs']);
             });
 
-            $(document).on('submit', '#review-form', function (e) {
+            $(document).on('submit', selectors.form, function (e) {
                 e.preventDefault(e);
-                var isValid = false;
-                if (isValid) {
-                    var saved = false;
-                    if (saved) {
-                        $('.review-form').hide();
-                        $('.thank-you').show();
-                    } else {
-                        // hiba menteskor
-                    }
+                let formData = getFormData(
+                    $(selectors.name).val(),
+                    $(selectors.location).val(),
+                    $(selectors.review).val(),
+                    $(selectors.terms).is(':checked'),
+                );
+                if (isValidReview(formData)) {
+                    $.post(
+                        'https://europe-west1-ashleaf-ac75c.cloudfunctions.net/addReview',
+                        formData,
+                        response,
+                        'json'
+                    );
                 } else {
-                    // hiba a form-ban
+                    error();
                 }
             });
         });

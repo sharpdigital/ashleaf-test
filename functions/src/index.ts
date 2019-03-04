@@ -2,8 +2,6 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import * as cors from 'cors';
 
-console.log('ofcors', cors);
-
 const corsHandler = cors({origin: true});
 
 admin.initializeApp();
@@ -35,7 +33,7 @@ exports.addReview = functions
                 })
                 .then((writeResult) => res.json({
                     error: false,
-                    result: `Message with ID: ${writeResult.id} added.`,
+                    result: `The review (${writeResult.id}) added successfully.`,
                 }))
                 .catch(() => res.json({
                     error: true,

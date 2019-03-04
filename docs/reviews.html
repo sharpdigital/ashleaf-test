@@ -90,7 +90,7 @@
                                     <input type="checkbox" class="form-check-input" id="terms">
                                     <label class="form-check-label" for="terms">I agree to use my review.</label>
                                 </div>
-                                <button type="submit" class="submit btn btn-default form-control">Submit</button>
+                                <button type="submit" class="submit btn btn-default form-control" data-loading-text="<i class='fa fa-circle-o-notch fa-spin '></i> Submitting...">Submit</button>
                                 <button type="button" class="cancel btn btn-default form-control">Cancel</button>
                             </form>
                         </div>
@@ -162,11 +162,13 @@
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 <script>
     (function($) {
         const selectors = {
             reviewForm: '.review-form',
             cancelButton: '.review-form button.cancel',
+            submitButton: '.review-form button.submit',
             reviewUs: '.review-us',
             reviewUsLink: '.review-us .link',
             thankYou: '.thank-you',
@@ -177,6 +179,8 @@
             review: 'textarea[name="review"]',
             terms: '#terms',
         };
+
+        let submitButton;
 
         function toggleToShow(elementsToShow, all) {
             if (all === false) {
@@ -251,6 +255,7 @@
         function error() {
             // var errorBgColor = '#ffc6c6';
             toggleToShow(['error'], false);
+            resetSubmitButton();
         }
 
         function response(res) {
@@ -262,8 +267,17 @@
             }
         }
 
+        function resetSubmitButton() {
+            submitButton.button('reset');
+        }
+
+        $(document).ajaxError(resetSubmitButton);
+        $(document).ajaxComplete(resetSubmitButton);
         $(document).ready(function() {
+            submitButton = $(selectors.submitButton);
+
             toggleToShow(['reviewUs']);
+
 
             $(selectors.reviewUsLink).click(function(e) {
                 e.preventDefault();
@@ -276,6 +290,9 @@
 
             $(document).on('submit', selectors.form, function (e) {
                 e.preventDefault(e);
+
+                submitButton.button('loading');
+
                 let formData = getFormData(
                     $(selectors.name).val(),
                     $(selectors.location).val(),

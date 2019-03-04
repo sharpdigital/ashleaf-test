@@ -221,6 +221,11 @@ img {
     color: white;
 }
 
+.review-form button:disabled,
+.review-form button[disabled] {
+    color: #333;
+}
+
 .footer .round-icon {
     background-color: #788e9c;
 }

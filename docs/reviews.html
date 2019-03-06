@@ -68,31 +68,35 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="light-bg col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-sm-12 col-sm-offset-0">
-                        <h2 class="text-center">What our customers say about us</h2>
-                        <div class="text-center review-us">
-                            As artists, we find feedback on our work invaluable. Here you can <a href="#" class="link">leave us a review</a>.
-                        </div>
-                        <div class="text-center thank-you">Thanks you for your review.</div>
-                        <div class="text-center error">All fields are required!</div>
-                        <div class="review-form col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
-                            <p class="text-center">Leave a review</p>
-                            <form novalidate id="review-form">
-                                <div class="form-group">
-                                    <input type="text" value="" name="name" class="form-control" placeholder="Name to display">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <h2 class="text-center col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">What our customers say about us</h2>
+                                <div class="text-center review-us col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
+                                    As artists, we find feedback on our work invaluable. Here you can <a href="#" class="link">leave us a review</a>.
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" value="" name="location" class="form-control" placeholder="Your location">
+                                <div class="text-center thank-you col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">Thanks you for your review.</div>
+                                <div class="text-center error col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">All fields are required!</div>
+                                <div class="review-form col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3">
+                                    <p class="text-center">Leave a review</p>
+                                    <form novalidate id="review-form">
+                                        <div class="form-group">
+                                            <input type="text" value="" name="name" class="form-control" placeholder="Name to display">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" value="" name="location" class="form-control" placeholder="Your location">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="review" type="textarea" class="form-control" rows="5" placeholder="Your reivew"></textarea>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="terms">
+                                            <label class="form-check-label" for="terms">I agree to use my review.</label>
+                                        </div>
+                                        <button type="submit" class="submit btn btn-default form-control" data-loading-text="<i class='fa fa-circle-o-notch fa-spin '></i> Submitting...">Submit</button>
+                                        <button type="button" class="cancel btn btn-default form-control">Cancel</button>
+                                    </form>
                                 </div>
-                                <div class="form-group">
-                                    <textarea name="review" class="form-control" rows="3" placeholder="Your reivew"></textarea>
-                                </div>
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="terms">
-                                    <label class="form-check-label" for="terms">I agree to use my review.</label>
-                                </div>
-                                <button type="submit" class="submit btn btn-default form-control" data-loading-text="<i class='fa fa-circle-o-notch fa-spin '></i> Submitting...">Submit</button>
-                                <button type="button" class="cancel btn btn-default form-control">Cancel</button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                     <div class="dark-bg col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-sm-12 col-sm-offset-0">
@@ -193,51 +197,6 @@
                     });
             }
         }
-
-        // var formElements2 = [
-        //     {
-        //         name: 'name',
-        //         element: 'input',
-        //         selectorType: 'attribute',
-        //     },
-        //     {
-        //         name: 'location',
-        //         element: 'input',
-        //         selectorType: 'attribute',
-        //     },
-        //     {
-        //         name: 'review',
-        //         element: 'textarea',
-        //         selectorType: 'attribute',
-        //     },
-        //     {
-        //         name: 'terms',
-        //         element: 'checkbox',
-        //         selectorType: 'id',
-        //     }
-        // ];
-        // var formElements = [
-        //     {
-        //         el: $('input[name="name"]'),
-        //         name: 'name',
-        //         val: () => $('input[name="name"]').val(),
-        //     },
-        //     {
-        //         el: $('input[name="location"]'),
-        //         name: 'location',
-        //         val: () => $('input[name="location"]').val(),
-        //     },
-        //     {
-        //         el: $('textarea[name="review"]'),
-        //         name: 'review',
-        //         val: () => $('textarea[name="review"]').val(),
-        //     },
-        //     {
-        //         el: $('#terms'),
-        //         name: 'terms',
-        //         val: () => $('#terms').is(':checked'),
-        //     },
-        // ];
 
         function getFormData(name, location, review, terms) {
             return {

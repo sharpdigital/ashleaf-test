@@ -364,6 +364,12 @@ img {
     }
 }
 
+@media all and (min-width: 768px) {
+    .reviews-page .social-wrap {
+        display: none;
+    }
+}
+
 @media all and (max-width: 767px) {
     body {
         font-size: 18px;
@@ -382,6 +388,24 @@ img {
         height: 40px; /* fontsize + 2 * padding */
         padding: 10px;
         width: 40px; /* fontsize + 2 * padding */
+    }
+
+    .reviews-page .motto,
+    .reviews-page .motto + div,
+    .reviews-page .social {
+        display: none;
+    }
+
+    .reviews-page .social-wrap .social {
+        display: block;
+    }
+
+    .reviews-page .reviews {
+        background: none;
+    }
+
+    .reviews-page h2 {
+        padding-top: 0;
     }
 }
 

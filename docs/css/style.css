@@ -226,6 +226,10 @@ img {
     color: #333;
 }
 
+.social-wrap + .light-bg {
+    padding-bottom: 0;
+}
+
 .footer .round-icon {
     background-color: #788e9c;
 }
@@ -404,6 +408,19 @@ img {
 
     .reviews-page h2 {
         padding-top: 0;
+    }
+
+    .reviews-page .reviews .row {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .reviews-page .dark-bg {
+        padding: 6vw 0;
+    }
+
+    .footer div.text-center {
+        text-align: center;
     }
 }
 

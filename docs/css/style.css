@@ -365,7 +365,8 @@ img {
 }
 
 @media all and (min-width: 768px) {
-    .reviews-page .social-wrap {
+    .reviews-page .social-wrap,
+    .reviews-page .mobile {
         display: none;
     }
 }
@@ -392,12 +393,9 @@ img {
 
     .reviews-page .motto,
     .reviews-page .motto + div,
-    .reviews-page .social {
+    .reviews-page .social,
+    .reviews-page .desktop {
         display: none;
-    }
-
-    .reviews-page .social-wrap .social {
-        display: block;
     }
 
     .reviews-page .reviews {

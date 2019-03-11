@@ -1,43 +1,87 @@
-import * as functions from 'firebase-functions';
-import * as admin from 'firebase-admin';
 import * as cors from 'cors';
+import * as admin from 'firebase-admin';
+import * as functions from 'firebase-functions';
+import * as rp from 'request-promise';
 
 const corsHandler = cors({origin: true});
 
 admin.initializeApp();
+
+function getMessage(error: boolean, message: string) {
+    return {error, message};
+}
+
+function respondWithError(res: functions.Response, message: string) {
+    res.json(getMessage(true, message));
+}
+
+function respondWithSuccess(res: functions.Response, message: string) {
+    res.json(getMessage(false, message));
+}
+
+function saveReview(req: functions.Request, res: functions.Response) {
+    const {name, location, review} = req.body;
+
+    admin
+        .firestore()
+        .collection('reviews')
+        .add({
+            original: {
+                displayName: `${name}, ${location}`,
+                review,
+                isApproved: false,
+                createdAt: admin.firestore.Timestamp.fromDate(new Date()),
+            },
+        })
+        .then((writeResult) => respondWithSuccess(
+            res,
+            `The review (${writeResult.id}) added successfully.`,
+        ))
+        .catch(() => respondWithError(
+            res,
+            'All fields are required!',
+        ));
+}
+
+function checkRecaptcha(req: functions.Request) {
+    const response = req.query.response;
+    console.log('recaptcha response', response);
+    return rp({
+        uri: 'https://recaptcha.google.com/recaptcha/api/siteverify',
+        method: 'POST',
+        formData: {
+            secret: '6LcsxZYUAAAAAAWA8_TlaIF1ZzRoycY2y1qF-OY9',
+            response: response,
+        },
+        json: true,
+    });
+}
+
+function isValidRequest(req: functions.Request): boolean {
+    const {name, location, review} = req.body;
+
+    return req.query.response && name && location && review;
+}
 
 exports.addReview = functions
     .region('europe-west1')
     .https
     .onRequest((req, res) => {
         corsHandler(req, res, () => {
-            const {name, location, review} = req.body;
-
-            if (!name || !location || !review) {
-                return res.json({
-                    error: true,
-                    message: 'All fields are required!',
-                });
+            if (isValidRequest(req)) {
+                checkRecaptcha(req)
+                    .then(result => {
+                        console.log('recaptcha result', result);
+                        if (result.success) {
+                            saveReview(req, res);
+                        }
+                        else {
+                            respondWithError(res, `Recaptcha verification failed. Are you a robot? ${result}`);
+                        }
+                    })
+                    .catch(reason => respondWithError(res, `All fields are required! ${reason}`));
+            } else {
+                respondWithError(res, 'All fields are required!');
             }
-
-            return admin
-                .firestore()
-                .collection('reviews')
-                .add({
-                    original: {
-                        displayName: `${name}, ${location}`,
-                        review,
-                        isApproved: false,
-                        createdAt: admin.firestore.Timestamp.fromDate(new Date()),
-                    },
-                })
-                .then((writeResult) => res.json({
-                    error: false,
-                    result: `The review (${writeResult.id}) added successfully.`,
-                }))
-                .catch(() => res.json({
-                    error: true,
-                    message: 'Something went wrong, please try again!',
-                }));
         });
     });

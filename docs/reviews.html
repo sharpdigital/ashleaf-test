@@ -19,6 +19,7 @@
         ga('create', 'UA-77927512-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <script src="//www.google.com/recaptcha/api.js?onload=onloadRecaptcha" async defer></script>
 </head>
 <body class="reviews-page">
 <div class="container-fluid">
@@ -123,6 +124,7 @@
                                             <input type="checkbox" class="form-check-input" id="terms">
                                             <label class="form-check-label" for="terms">I agree to use my review.</label>
                                         </div>
+                                        <div class="form-group g-recaptcha" data-sitekey="6LcsxZYUAAAAAKZ0bl-1mbya1UIUKsolzsujRZMx" data-callback="checkRecaptcha" data-expired-callback="dataExpiredCallback" data-size="invisible"></div>
                                         <button type="submit" class="submit btn btn-default form-control" data-loading-text="<i class='fa fa-circle-o-notch fa-spin '></i> Submitting...">Submit</button>
                                         <button type="button" class="cancel btn btn-default form-control">Cancel</button>
                                     </form>
@@ -131,16 +133,6 @@
                         </div>
                     </div>
                     <div class="dark-bg col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-sm-12 col-sm-offset-0">
-                        <div class="quotes">
-                            <p class="text-center">The reality of an Ashleaf sculpture in your hand far surpasses what any photograph of it can portray. The way that the delicate and fragile beauty of a real leaf gets captured is extraordinary.</p>
-                            <p class="text-center citation">Mark, Hertfordshire</p>
-                        </div>
-                        <div class="row rule"><hr></div>
-                        <div class="quotes">
-                            <p class="text-center">The reality of an Ashleaf sculpture in your hand far surpasses what any photograph of it can portray. The way that the delicate and fragile beauty of a real leaf gets captured is extraordinary.</p>
-                            <p class="text-center citation">Mark, Hertfordshire</p>
-                        </div>
-                        <div class="row rule"><hr></div>
                         <div class="quotes">
                             <p class="text-center">The reality of an Ashleaf sculpture in your hand far surpasses what any photograph of it can portray. The way that the delicate and fragile beauty of a real leaf gets captured is extraordinary.</p>
                             <p class="text-center citation">Mark, Hertfordshire</p>
@@ -229,9 +221,12 @@
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="//stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 <script>
-    (function($) {
+    let isJqReady = false;
+    let isRecaptchaReady = false;
+
+    (function($, grecaptcha) {
         const selectors = {
             reviewForm: '.review-form',
             cancelButton: '.review-form button.cancel',
@@ -248,6 +243,7 @@
         };
 
         let submitButton;
+        let formData;
 
         function toggleToShow(elementsToShow, all) {
             if (all === false) {
@@ -255,23 +251,21 @@
             } else {
                 ['reviewForm', 'reviewUs', 'thankYou', 'error']
                     .forEach((selector) => {
-                        var act = elementsToShow.includes(selector) ? 'show' : 'hide';
+                        const act = elementsToShow.includes(selector) ? 'show' : 'hide';
                         $(selectors[selector])[act]();
                     });
             }
         }
 
-        function getFormData(name, location, review, terms) {
-            return {
-                name: name,
-                location: location,
-                review: review,
-                terms: terms,
+        function isValidReview() {
+            formData = {
+                name: $(selectors.name).val(),
+                location: $(selectors.location).val(),
+                review: $(selectors.review).val(),
+                terms: $(selectors.terms).is(':checked'),
             };
-        }
 
-        function isValidReview(review) {
-            return (!!review.name && !!review.location && !!review.review && !!review.terms);
+            return (!!formData.name && !!formData.location && !!formData.review && !!formData.terms);
         }
 
         function error() {
@@ -280,7 +274,7 @@
             resetSubmitButton();
         }
 
-        function response(res) {
+        function successCallback(res) {
             if (res.error !== true) {
                 toggleToShow(['thankYou']);
             } else {
@@ -293,47 +287,54 @@
             submitButton.button('reset');
         }
 
+        function bindSubmit() {
+            if (isJqReady && isRecaptchaReady) {
+                $(document).on('submit', selectors.form, saveReview);
+            }
+        }
+
+        function saveReview(e) {
+            e.preventDefault(e);
+            submitButton.button('loading');
+
+            if (isValidReview()) {
+                grecaptcha.execute();
+            } else {
+                error();
+            }
+        }
+
         $(document).ajaxError(resetSubmitButton);
         $(document).ajaxComplete(resetSubmitButton);
-        $(document).ready(function() {
+        $(document).ready(() => {
+            isJqReady = true;
             submitButton = $(selectors.submitButton);
-
             toggleToShow(['reviewUs']);
 
-
-            $(selectors.reviewUsLink).click(function(e) {
+            $(selectors.reviewUsLink).click((e) => {
                 e.preventDefault();
                 toggleToShow(['reviewForm']);
             });
 
-            $(selectors.cancelButton).click(function () {
+            $(selectors.cancelButton).click(() => {
                 toggleToShow(['reviewUs']);
             });
 
-            $(document).on('submit', selectors.form, function (e) {
-                e.preventDefault(e);
-
-                submitButton.button('loading');
-
-                let formData = getFormData(
-                    $(selectors.name).val(),
-                    $(selectors.location).val(),
-                    $(selectors.review).val(),
-                    $(selectors.terms).is(':checked'),
-                );
-                if (isValidReview(formData)) {
-                    $.post(
-                        'https://europe-west1-ashleaf-ac75c.cloudfunctions.net/addReview',
-                        formData,
-                        response,
-                        'json'
-                    );
-                } else {
-                    error();
-                }
-            });
+            bindSubmit();
         });
-    })(window.jQuery);
+        window.onloadRecaptcha = () => {
+            isRecaptchaReady = true;
+            bindSubmit();
+        };
+        window.checkRecaptcha = (response) => {
+            console.log("dataCallback", response);
+            const url = `https://europe-west1-ashleaf-ac75c.cloudfunctions.net/addReview?response=${encodeURIComponent(response)}`;
+            $.post(url, formData, successCallback, 'json');
+        };
+        window.dataExpiredCallback = () => {
+            console.log("dataExpiredCallback");
+        };
+    })(window.jQuery, window.grecaptcha, window);
 </script>
 </body>
 </html>

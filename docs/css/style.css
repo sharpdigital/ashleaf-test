@@ -54,6 +54,10 @@ input[type="checkbox"] + label {
     padding: 1.5vw 0 0;
 }
 
+.row > p:not(:first-child) {
+    padding-top: 1em;
+}
+
 nav {
     float: right;
     position: relative;

@@ -46,6 +46,10 @@ hr {
     width: 83.3%;
 }
 
+input[type="checkbox"] + label {
+    display: inline;
+}
+
 .row.navigation {
     padding: 1.5vw 0 0;
 }

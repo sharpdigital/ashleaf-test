@@ -200,6 +200,10 @@ img {
     color: white;
 }
 
+.subscription .row .row p:last-of-type {
+    padding-bottom: 3em;
+}
+
 .subscription form {
     padding-top: 1em;
 }

@@ -188,6 +188,11 @@ img {
     width: 60%;
 }
 
+.subscription .social-wrap,
+.subscription .social-wrap > div > .container-fluid > .row {
+    padding-bottom: 0;
+}
+
 .subscription h2 {
     color: #ccb090;
 }

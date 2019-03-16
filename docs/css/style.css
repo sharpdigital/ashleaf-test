@@ -191,6 +191,7 @@ img {
 .subscription .social-wrap,
 .subscription .social-wrap > div > .container-fluid > .row {
     padding-bottom: 0;
+    padding-top: 20px;
 }
 
 .subscription h2 {
@@ -425,7 +426,7 @@ img {
     }
 
     .social {
-        margin-top: -7px;
+        margin-top: -20px;
     }
 
     .round-icon {

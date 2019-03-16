@@ -182,9 +182,14 @@ img {
     font-weight: normal;
 }
 
-.reviews hr {
+.reviews hr,
+.subscription hr {
     border-color: #ccb090;
     width: 60%;
+}
+
+.subscription h2 {
+    color: #ccb090;
 }
 
 .reviews .quotes {

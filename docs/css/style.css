@@ -206,8 +206,9 @@ img {
     color: white;
 }
 
+.subscription .before-form,
 .subscription .row .row p:last-of-type {
-    padding-bottom: 3em;
+    padding-bottom: 1em;
 }
 
 .subscription form {
@@ -411,7 +412,7 @@ img {
 
 @media all and (min-width: 768px) {
     .reviews-page .social-wrap,
-    .reviews-page .mobile {
+    .mobile {
         display: none;
     }
 }
@@ -439,7 +440,7 @@ img {
     .reviews-page .motto,
     .reviews-page .motto + div,
     .reviews-page .social,
-    .reviews-page .desktop {
+    .desktop {
         display: none;
     }
 

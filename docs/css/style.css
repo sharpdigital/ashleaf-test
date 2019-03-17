@@ -210,7 +210,7 @@ img {
     color: white;
 }
 
-.subscription .row .row p span {
+.subscription .row .row p span.normal-weight {
     font-weight: normal;
 }
 

@@ -210,6 +210,10 @@ img {
     color: white;
 }
 
+.subscription .row .row p a {
+    color: #815241;
+}
+
 .subscription .before-form,
 .subscription .row .row p:last-of-type {
     padding-bottom: 1em;

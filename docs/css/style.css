@@ -210,6 +210,10 @@ img {
     color: white;
 }
 
+.subscription .row .row p span {
+    font-weight: normal;
+}
+
 .subscription .row .row p a {
     color: #ccb090;
 }

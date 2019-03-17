@@ -419,6 +419,10 @@ img {
     .mobile {
         display: none;
     }
+
+    .container-fluid .container-fluid > .row:not(:first-child) {
+        padding-top: 0;
+    }
 }
 
 @media all and (max-width: 767px) {

@@ -58,16 +58,19 @@ input[type="checkbox"] + label {
     padding-top: 1em;
 }
 
-nav {
+.navbar {
     float: right;
     position: relative;
     left: -50%;
     text-align: left;
+    border: none;
+    padding-top: 27px;
 }
 
-nav > ul {
+.navbar ul {
     position: relative;
     left: 50%;
+    list-style-type: none;
 }
 
 form table {
@@ -84,7 +87,7 @@ form select {
     color: #4d4d4d;
 }
 
-.nav li a {
+.navbar-nav li a {
     color: #233b46;
     font-weight: normal;
     border-right: 1px solid #233b46;
@@ -93,17 +96,20 @@ form select {
     margin: 10px 0;
 }
 
-.nav li:last-child a {
+.navbar-nav li:last-child a {
+    background-color: transparent;
     border-right: none;
 }
 
-.nav li a.active {
+.navbar-nav li.active a {
+    background-color: transparent;
     font-weight: bold;
 }
 
-.nav li a:hover {
+.navbar-nav li a:hover {
     background-color: transparent;
     color: #233b46;
+    text-decoration: none;
 }
 
 img {

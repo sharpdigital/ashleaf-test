@@ -32,21 +32,26 @@
             <h1 class="col-xs-12 col-md-8 col-md-offset-2"><img src="img/ashleaf-logo.svg" alt="ashleaf"></h1>
         </div>
         <div class="row navigation light-bg">
-            <nav>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="reviews.html">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="100-leaves.html">100 leaves</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="active" href="100-leaves-plus.html">100 leaves +</a>
-                    </li>
-                </ul>
+            <nav class="navbar">
+                <div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ashleaf-main-nav" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="ashleaf-main-nav">
+                        <ul class="navbar-nav mr-auto">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="reviews.html">Reviews</a></li>
+                            <li><a href="100-leaves.html">100 leaves</a></li>
+                            <li class="active"><a href="100-leaves-plus.html">100 leaves +</a></li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </div>
         <div class="row social-wrap light-bg">
@@ -215,6 +220,11 @@
         </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="//stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script>
+        function toggleSubnav(subnav) {
+            $(`.${subnav}`).toggle();
+        }
+    </script>
 </body>
 </html>

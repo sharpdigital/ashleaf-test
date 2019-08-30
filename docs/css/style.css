@@ -77,6 +77,7 @@ form table {
 
 form td {
     color: #ffffff;
+    padding-bottom: 10px;
 }
 
 form select {

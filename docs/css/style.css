@@ -70,6 +70,19 @@ nav > ul {
     left: 50%;
 }
 
+form table {
+    width: 100%;
+    text-align: center;
+}
+
+form td {
+    color: #ffffff;
+}
+
+form select {
+    color: #4d4d4d;
+}
+
 .nav li a {
     color: #233b46;
     font-weight: normal;

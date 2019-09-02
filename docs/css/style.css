@@ -191,6 +191,10 @@ img {
     width: 22px; /* fontsize + 2 * padding */
 }
 
+.motto-mobile {
+    display: none;
+}
+
 .reviews {
     background-image: url('../img/desktop/cherry-variations.jpg');
     background-repeat: no-repeat;
@@ -513,8 +517,13 @@ img {
         width: 40px; /* fontsize + 2 * padding */
     }
 
-    .reviews-page .motto,
-    .reviews-page .motto + div,
+    .home-page .motto-mobile {
+        display: inherit;
+        padding: 0 0 4vw 0;
+    }
+
+    .home-page .motto,
+    .home-page .motto + div,
     .reviews-page .social,
     .desktop {
         display: none;

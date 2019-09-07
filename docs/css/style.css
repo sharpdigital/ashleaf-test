@@ -67,6 +67,14 @@ input[type="checkbox"] + label {
     padding-top: 27px;
 }
 
+.navbar-brand {
+    display: inline;
+}
+
+.navbar-brand > img {
+    display: inline;
+}
+
 .navbar-nav {
     position: relative;
     left: 50%;
@@ -469,14 +477,19 @@ img {
     .navbar {
         width: 100%;
         left: inherit;
+        padding-top: 15px;
     }
 
     .navbar-toggle {
-        float: none;
+        float: left;
+        border: none;
+        padding-top: 22px;
     }
 
     .navbar-brand {
-        float: none;
+        float: right;
+        padding: 0;
+        height: inherit;
     }
 
     .collapse {

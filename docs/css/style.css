@@ -483,7 +483,7 @@ img {
     .navbar-toggle {
         float: left;
         border: none;
-        padding-top: 22px;
+        padding-top: calc(7.5vw - 7.5px);
     }
 
     .navbar-brand {

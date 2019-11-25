@@ -113,14 +113,38 @@ form select {
     border-right: none;
 }
 
-.navbar-nav li.active a {
+.navbar-nav > li.active > a,
+.dropdown-menu > li.active > a {
     background-color: transparent;
     font-weight: bold;
+    color: #233b46;
+}
+
+.dropdown-menu > li > a,
+.dropdown-menu > li.active > a {
+    border: none;
+    font-size: 1.5em;
+    padding: 0 18px;
+}
+
+.dropdown-menu > li.active > a:hover {
+    background-color: transparent;
+    color: #233b46;
 }
 
 .navbar-nav li a:hover {
     background-color: transparent;
     color: #233b46;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background-color: #b7c6d0;
+    border: none;
+    z-index: 10000;
+}
+
+.dropdown-toggle:focus {
     text-decoration: none;
 }
 
@@ -491,6 +515,12 @@ img {
         padding: 0;
         height: inherit;
     }
+
+    .navbar .dropdown-menu > li > a,
+    .navbar .dropdown-menu > li.active > a {
+        font-size: 1.1em;
+    }
+
 
     .collapse {
         width: 100%;

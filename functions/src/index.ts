@@ -85,3 +85,43 @@ exports.addReview = functions
             }
         });
     });
+
+
+function saveReservation(req: functions.Request, res: functions.Response) {
+    const {day, subscriberId} = req.body;
+
+    admin
+        .firestore()
+        .collection('reservations')
+        .add({
+            day,
+            subscriberId,
+        })
+        .then(() => respondWithSuccess(
+            res,
+            `You have successfully reserved the leaf collected on day #${day}`,
+        ))
+        .catch(() => respondWithError(
+            res,
+            `Unfortunatelly the leaf collected on day #${day} is no longer available for reservation. Please select another available leaf.`,
+        ));
+}
+
+function isValidReservationRequest(req: functions.Request): boolean {
+    const {day, subscriberId} = req.body;
+
+    return day && subscriberId;
+}
+
+exports.reserveLeaf = functions
+    .region('europe-west1')
+    .https
+    .onRequest((req, res) => {
+        corsHandler(req, res, () => {
+            if (isValidReservationRequest(req)) {
+                saveReservation(req, res);
+            } else {
+                respondWithError(res, 'All fields are required!');
+            }
+        });
+    });

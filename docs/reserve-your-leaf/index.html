@@ -1,134 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="p:domain_verify" content="4c1f2e04f95101eb8202ca303f6372a6"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ashleaf - Unique botanical bronze sculpture</title>
-    <meta name="description" content="Leaves individually selected for their form and beauty; cast in bronze; presented singly and in compositions for architectural, sculptural, jewellery, decorative and design settings.">
-    <script src="//cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-77927512-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <base href="/ashleaf-test/reserve-your-leaf">    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/styles.748189762ffc49258a0c.css"></head>
-  <body>
-    <body class="home-page">
-      <div class="container-fluid">
-        <div class="row logo-row-margin light-bg desktop">
-          <h1 class="col-xs-12 col-md-8 col-md-offset-2"><img src="./assets/ashleaf-logo.svg" alt="ashleaf"></h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="p:domain_verify" content="4c1f2e04f95101eb8202ca303f6372a6"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ashleaf - Unique botanical bronze sculpture</title>
+  <meta name="description" content="Leaves individually selected for their form and beauty; cast in bronze; presented singly and in compositions for architectural, sculptural, jewellery, decorative and design settings.">
+  <script src="//cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments);
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-77927512-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <base href="/ashleaf-test/reserve-your-leaf">  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/styles.f25b831d34cca1a95745.css"></head>
+<body class="leaves-list">
+  <div class="modal fade" id="areYouSureModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Are you sure?</h4>
         </div>
-        <div class="row navigation light-bg">
-          <nav class="navbar">
-            <div class="navbar-header mobile">
-              <button type="button" class="navbar-toggle collapsed col-xs-1" data-toggle="collapse" data-target="#ashleaf-main-nav" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <h1 class="navbar-brand col-xs-9"><img src="./assets/ashleaf-logo.svg" alt="ashleaf"></h1>
-            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Reserve</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <div class="container-fluid">
+    <div class="row logo-row-margin light-bg desktop">
+      <h1 class="col-xs-12 col-md-8 col-md-offset-2"><img src="./assets/ashleaf-logo.svg" alt="ashleaf"></h1>
+    </div>
+    <div class="row navigation light-bg">
+      <nav class="navbar">
+        <div class="navbar-header mobile">
+          <button type="button" class="navbar-toggle collapsed col-xs-1" data-toggle="collapse" data-target="#ashleaf-main-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1 class="navbar-brand col-xs-9"><img src="./assets/ashleaf-logo.svg" alt="ashleaf"></h1>
+        </div>
 
-            <div class="collapse navbar-collapse col-xs-12" id="ashleaf-main-nav">
-              <ul class="navbar-nav mr-auto">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">100 leaves project<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="100-leaves-project.html">The 100 leaves project</a></li>
-                    <li><a href="100-leaves-project.html">100 bronze leaves</a></li>
-                  </ul>
-                </li>
-                <li><a href="events.html">Events</a></li>
+        <div class="collapse navbar-collapse col-xs-12" id="ashleaf-main-nav">
+          <ul class="navbar-nav mr-auto">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">100 leaves project<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="100-leaves.html">The 100 leaves project</a></li>
+                <li><a href="">100 bronze leaves</a></li>
               </ul>
-            </div>
-          </nav>
+            </li>
+            <li><a href="events.html">Events</a></li>
+          </ul>
         </div>
-        <div class="row social-wrap light-bg" style=" padding-bottom: 0;">
-          <div class="social">
-            <div class="col-xs-2 col-xs-offset-2 text-center">
-              <a href="https://www.instagram.com/ashleaflondon/" target="_blank">
-                <i class="fa fa-instagram round-icon" aria-hidden="true"></i>
-              </a>
-            </div>
-            <div class="col-xs-2 text-center">
-              <a href="https://twitter.com/ashleaflondon" target="_blank">
-                <i class="fa fa-twitter round-icon" aria-hidden="true"></i>
-              </a>
-            </div>
-            <div class="col-xs-2 text-center">
-              <a href="mailto:info@ashleaf.london" target="_blank">
-                <i class="fa fa-envelope round-icon" aria-hidden="true"></i>
-              </a>
-            </div>
-            <div class="col-xs-2 text-center">
-              <a href="https://www.pinterest.com/ashleaflondon/x§" target="_blank">
-                <i class="fa fa-pinterest-p round-icon" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-          <div class="col-xs-12 col-lg-12 nopadding thin-bottom-border dark-bg" style="padding-top: 40px;">
-            <ashleaf-nx-root></ashleaf-nx-root>
-          </div>
+      </nav>
+    </div>
+    <div class="row social-wrap light-bg" style=" padding-bottom: 0;">
+      <div class="social">
+        <div class="col-xs-2 col-xs-offset-2 text-center">
+          <a href="https://www.instagram.com/ashleaflondon/" target="_blank">
+            <i class="fa fa-instagram round-icon" aria-hidden="true"></i>
+          </a>
         </div>
-        <div class="row footer">
-          <div class="col-lg-2 col-lg-offset-1 col-xs-10 col-xs-offset-1 text-center">
-            <a href="mailto:info@ashleaf.london" target="_blank" class="text-nowrap">
-              <i class="fa fa-envelope round-icon small" aria-hidden="true"></i>
-              info@ashleaf.london
-            </a>
-          </div>
-          <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
-            <a href="tel:+447585662064" class="text-nowrap">
-              <i class="fa fa-phone round-icon small" aria-hidden="true"></i>
-              +447585662064
-            </a>
-          </div>
-          <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
-            <a href="https://www.instagram.com/ashleaflondon/" target="_blank" class="text-nowrap">
-              <i class="fa fa-instagram round-icon small" aria-hidden="true"></i>
-              ashleaflondon
-            </a>
-          </div>
-          <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
-            <a href="https://twitter.com/ashleaflondon" target="_blank" class="text-nowrap">
-              <i class="fa fa-twitter round-icon small" aria-hidden="true" class="text-nowrap"></i>
-              ashleaflondon
-            </a>
-          </div>
-          <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
-            <a href="https://www.pinterest.com/ashleaflondon" target="_blank">
-              <i class="fa fa-pinterest-p round-icon small" aria-hidden="true" class="text-nowrap"></i>
-              ashleaflondon
-            </a>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 text-center">
-            <a href="https://twitter.com/ashleaflondon">
-              <i class="fa fa-map-marker round-icon small" aria-hidden="true"></i>
-              15D Parsons Green Depot, 33-39 Parsons Green Lane, London, SW6 4HH
-            </a>
-          </div>
+        <div class="col-xs-2 text-center">
+          <a href="https://twitter.com/ashleaflondon" target="_blank">
+            <i class="fa fa-twitter round-icon" aria-hidden="true"></i>
+          </a>
         </div>
-        <div class="row rule">
-          <hr>
+        <div class="col-xs-2 text-center">
+          <a href="mailto:info@ashleaf.london" target="_blank">
+            <i class="fa fa-envelope round-icon" aria-hidden="true"></i>
+          </a>
         </div>
-        <div class="row copyright">
-          <div class="col-xs-12">
-            <p class="text-center no-bottom-margin">Entire website copyright ©ashleaf 2019. All rights reserved.</p>
-          </div>
+        <div class="col-xs-2 text-center">
+          <a href="https://www.pinterest.com/ashleaflondon/x§" target="_blank">
+            <i class="fa fa-pinterest-p round-icon" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-  <script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/runtime-es2015.a7419b420a33e9eb0f9a.js" type="module"></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/runtime-es5.a7419b420a33e9eb0f9a.js" nomodule defer></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/polyfills-es5.3ff796571eb9f406f768.js" nomodule defer></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/polyfills-es2015.25bfed26497f24d6d1d7.js" type="module"></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/main-es2015.3554e9fcceb99783f697.js" type="module"></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/main-es5.3554e9fcceb99783f697.js" nomodule defer></script></body>
+      <div class="col-xs-12 col-lg-12 nopadding thin-bottom-border dark-bg">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="dark-bg col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-sm-12 col-sm-offset-0">
+              <h2 class="text-center">100 bronze leaves</h2>
+            </div>
+          </div>
+        </div>
+        <ashleaf-nx-root></ashleaf-nx-root>
+      </div>
+    </div>
+    <div class="row footer">
+      <div class="col-lg-2 col-lg-offset-1 col-xs-10 col-xs-offset-1 text-center">
+        <a href="mailto:info@ashleaf.london" target="_blank" class="text-nowrap">
+          <i class="fa fa-envelope round-icon small" aria-hidden="true"></i>
+          info@ashleaf.london
+        </a>
+      </div>
+      <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
+        <a href="tel:+447585662064" class="text-nowrap">
+          <i class="fa fa-phone round-icon small" aria-hidden="true"></i>
+          +447585662064
+        </a>
+      </div>
+      <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
+        <a href="https://www.instagram.com/ashleaflondon/" target="_blank" class="text-nowrap">
+          <i class="fa fa-instagram round-icon small" aria-hidden="true"></i>
+          ashleaflondon
+        </a>
+      </div>
+      <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
+        <a href="https://twitter.com/ashleaflondon" target="_blank" class="text-nowrap">
+          <i class="fa fa-twitter round-icon small" aria-hidden="true" class="text-nowrap"></i>
+          ashleaflondon
+        </a>
+      </div>
+      <div class="col-lg-2 col-lg-offset-0 col-xs-10 col-xs-offset-1 text-center">
+        <a href="https://www.pinterest.com/ashleaflondon" target="_blank">
+          <i class="fa fa-pinterest-p round-icon small" aria-hidden="true" class="text-nowrap"></i>
+          ashleaflondon
+        </a>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 text-center">
+        <a href="https://twitter.com/ashleaflondon">
+          <i class="fa fa-map-marker round-icon small" aria-hidden="true"></i>
+          15D Parsons Green Depot, 33-39 Parsons Green Lane, London, SW6 4HH
+        </a>
+      </div>
+    </div>
+    <div class="row rule">
+      <hr>
+    </div>
+    <div class="row copyright">
+      <div class="col-xs-12">
+        <p class="text-center no-bottom-margin">Entire website copyright ©ashleaf 2019. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/runtime-es2015.a7419b420a33e9eb0f9a.js" type="module"></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/runtime-es5.a7419b420a33e9eb0f9a.js" nomodule defer></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/polyfills-es5.3ff796571eb9f406f768.js" nomodule defer></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/polyfills-es2015.25bfed26497f24d6d1d7.js" type="module"></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/main-es2015.542ee38e4c449b1bd5ca.js" type="module"></script><script src="https://sharpdigital.github.io/ashleaf-test/reserve-your-leaf/main-es5.542ee38e4c449b1bd5ca.js" nomodule defer></script></body>
 </html>

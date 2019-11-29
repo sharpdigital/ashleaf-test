@@ -99,11 +99,11 @@ function saveReservation(req: functions.Request, res: functions.Response) {
         })
         .then(() => respondWithSuccess(
             res,
-            `You have successfully reserved the leaf collected on day #${day}`,
+            `You have successfully reserved the leaf collected on day ${day}`,
         ))
         .catch(() => respondWithError(
             res,
-            `Unfortunatelly the leaf collected on day #${day} is no longer available for reservation. Please select another available leaf.`,
+            `Unfortunatelly the leaf collected on day ${day} is no longer available for reservation. Please select another available leaf.`,
         ));
 }
 
